@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Discover and Succeed in Hybrid Learning</title>
+  </head>
+  <body>
+    <h1>DaSHL - Paso 2</h1>
+    <form action="{% url 'planner:step3' %}" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>¿Cuál es la informaci&oacute;n esencial que desea presentar
+                en esta sesi&oacute;n?</td>
+                <td>
+                    <textarea name="content_description" cols="50" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ¿De qu&eacute; manera desea que los estudiantes accedan a
+                    esta informaci&oacute;n?
+                </td>
+                <td>
+                    <textarea name="session_plan_content_delivery_method" cols="50" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ¿qu&eacute; espera que los estudiantes hagan con esta nueva
+                    informaci&oacute;n?
+                </td>
+                <td>
+                    <textarea name="session_plan_intended_content_use" cols="50" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- just an empty space-->
+                </td>
+                <td>
+                    <input type="submit" value="Continuemos">
+                </td> 
+            </tr>
+        </table>
+        <!-- need to review -->
+        {% if request %}
+        <input type="hidden" name="skill_id" value={{ request.skill_id}}>
+        {% else %}
+        <!-- error message need to be raisen -->
+        <p>Error: no se ha podido recuperar la información básica de competencias</p>
+        {% endif %}
+        <!-- need to review -->
+    </form>
+  </body>
+</html>

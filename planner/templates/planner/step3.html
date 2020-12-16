@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Discover and Succeed in Hybrid Learning</title>
+  </head>
+  <body>
+    <h1>DaSHL - Paso 3</h1>
+    <form action="{% url 'planner:step4' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- hidden fields for upcoming variables -->
+        <input type="hidden" name="skill" value="{{ skill }}">
+        <input type="hidden" name="clo" value="{{ clo }}">
+        <input type="hidden" name="ilo" value="{{ ilo }}">
+        <input type="hidden" name="content" value="{{ content }}">
+        <input type="hidden" name="delivery_method" value="{{ delivery_method }}">
+        <input type="hidden" name="intended_use" value="{{ intended_use }}">
+        <!-- hidden fields for upcoming variables -->
+        <input type="submit" value="Continuar">
+    </form>
+    
