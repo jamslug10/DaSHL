@@ -20,11 +20,13 @@ def step2(request):
     aux_skill = request.POST.get("skill")
     aux_clo = request.POST.get("clo")
     aux_ilo = request.POST.get("ilo")
+    aux_teaching_method = request.POST.get("teaching_method")
     
     context={
         'skill': aux_skill,
         'clo': aux_clo,
         'ilo': aux_ilo,
+        'teaching_method': aux_teaching_method,
         'form': form,
     }
     
@@ -36,6 +38,7 @@ def step3(request):
     aux_skill = request.POST.get("skill")
     aux_clo = request.POST.get("clo")
     aux_ilo = request.POST.get("ilo")
+    aux_teaching_method = request.POST.get("teaching_method")
     aux_content = request.POST.get("content_description")
     aux_delivery_method = request.POST.get("content_delivery_method")
     aux_intended_use = request.POST.get("intended_content_use")
@@ -44,6 +47,7 @@ def step3(request):
         'skill': aux_skill,
         'clo': aux_clo,
         'ilo': aux_ilo,
+        'teaching_method': aux_teaching_method,
         'content': aux_content,
         'delivery_method': aux_delivery_method,
         'intended_use': aux_intended_use,
@@ -57,6 +61,7 @@ def step4(request):
     aux_skill = request.POST.get("skill")
     aux_clo = request.POST.get("clo")
     aux_ilo = request.POST.get("ilo")
+    aux_teaching_method = request.POST.get("teaching_method")
     aux_content = request.POST.get("content")
     aux_delivery_method = request.POST.get("delivery_method")
     aux_intended_use = request.POST.get("intended_use")
@@ -67,6 +72,7 @@ def step4(request):
         'skill': aux_skill,
         'clo': aux_clo,
         'ilo': aux_ilo,
+        'teaching_method': aux_teaching_method,
         'content': aux_content,
         'delivery_method': aux_delivery_method,
         'intended_use': aux_intended_use,

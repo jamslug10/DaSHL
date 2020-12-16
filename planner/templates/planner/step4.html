@@ -1,6 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}"
     <meta charset="utf-8">
     <title>Discover and Succeed in Hybrid Learning</title>
   </head>
@@ -9,36 +11,36 @@
     <p>La siguiente es la base de la planeación de su sesión de clase:</p>
     <table>
         <tr>
-            <td>Competencia asociada al curso:</td>
-            <td colspan="3">{{ skill }}</td>
+            <td class="cell_style1">Competencia asociada al curso:</td>
+            <td class="cell_style2" colspan="3">{{ skill }}</td>
         </tr>
         <tr>
-            <td>Resultado de Aprendizaje Esperado del curso:</td>
-            <td colspan="3">{{ clo }}</td>
+            <td class="cell_style3">Resultado de Aprendizaje Esperado del curso:</td>
+            <td class="cell_style4" colspan="3">{{ clo }}</td>
         </tr>
         <tr>
-            <td>Resultado de Aprendizaje Esperado de la sesión:</td>
-            <td colspan="3">{{ ilo }}</td>
+            <td class="cell_style1">Resultado de Aprendizaje Esperado de la sesión:</td>
+            <td class="cell_style2" colspan="3">{{ ilo }}</td>
         </tr>
         <tr>
-            <td>Metodología de Enseñanza:</td>
-            <td colspan="3">{{ teaching_methodology }}</td>
+            <td class="cell_style3">Metodología de Enseñanza:</td>
+            <td class="cell_style4" colspan="3">{{ teaching_method }}</td>
         </tr>
         <tr>
-            <td>Contenido Informativo:</td>
-            <td>{{ content }}</td>
-            <td>¿Cómo acceden a la información los estudiantes?:</td>
-            <td>{{ delivery_method }}</td>
+            <td class="cell_style5">Contenido Informativo:</td>
+            <td class="cell_style6">{{ content }}</td>
+            <td class="cell_style5">¿Cómo acceden a la información los estudiantes?:</td>
+            <td class="cell_style6">{{ delivery_method }}</td>
         </tr>
         <tr>
-            <td>Uso esperado de la información:</td>
-            <td colspan="3">{{ intended_use }}</td>
+            <td class="cell_style3">Uso esperado de la información:</td>
+            <td class="cell_style4" colspan="3">{{ intended_use }}</td>
         </tr>
         <tr>
-            <td>Actividades de Aprendizaje:</td>
-            <td>{{ learning_activities }}</td>
-            <td>Resultado ideal que podrían alcanzar los estudiantes:</td>
-            <td>{{ ideal_outcome }}</td>
+            <td class="cell_style5">Actividades de Aprendizaje:</td>
+            <td class="cell_style6">{{ learning_activities }}</td>
+            <td class="cell_style5">Resultado ideal que podrían alcanzar los estudiantes:</td>
+            <td class="cell_style6">{{ ideal_outcome }}</td>
         </tr>
     </table>
     
