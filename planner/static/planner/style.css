@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Merriweather+Sans&family=Nunito:wght@200&family=Oswald:wght@200&display=swap');
+
 .cell_style1 {
     background: #b6d7a8;
 }
@@ -20,4 +22,41 @@
 
 .cell_style6 {
     background: #cfe2f3;
+}
+
+.page_title {
+    font-family: 'Oswald', sans-serif;
+}
+
+.instructions {
+    font-family: 'Fira Code', monospace;
+}
+
+label {
+    font-family: 'Nunito', sans-serif;
+}
+
+input {
+    font-family: 'Nunito', sans-serif;
+}
+
+input[type="submit"] {
+    font-family: 'Merriweather Sans', sans-serif;
+    margin: 0 20px 0 590px;
+}
+
+select {
+    font-family: 'Nunito', sans-serif;
+}
+
+td {
+    font-family: 'Nunito', sans-serif;
+}
+
+.footer_logo {
+    padding: 0 20px 0 580px;
+}
+
+body {
+    width: 800px;
 }

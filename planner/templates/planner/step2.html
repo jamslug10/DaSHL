@@ -1,11 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}">
     <meta charset="utf-8">
     <title>Discover and Succeed in Hybrid Learning</title>
   </head>
   <body>
-    <h1>DaSHL - Paso 2</h1>
+    <h1 class="page_title">Discover and Succeed in Hybrid Learning - Paso 2</h1>
+    <p class="instructions">Hablemos ahora acerca de la información (los contenidos) que desea
+    presentar en esta sesión:
+    </p>
     <form action="{% url 'planner:step3' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -17,4 +22,8 @@
         <!-- hidden fields for upcoming variables -->
         <input type="submit" value="Continuar">
     </form>
-    
+    <p class="footer_logo">
+      <img src="https://www.estudioelefante.co/uploads/1/2/0/1/120163544/original-128px.png">
+    </p>
+  </body>
+</html>
