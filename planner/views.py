@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
-from .models import Teaching_method, Skill, Clo, Ilo
+# from .models import Teaching_method, Skill, Clo, Ilo
+from .models import Teaching_method
 from .forms import Step1Form, Step2Form, Step3Form
 
 # Create your views here.
@@ -68,11 +69,14 @@ def step4(request):
     aux_learning_activities = request.POST.get("learning_activities")
     aux_ideal_outcome = request.POST.get("ideal_outcome")
     
+    literal_teaching_method = Teaching_method.objects.get(id=aux_teaching_method)
+    
     context={
         'skill': aux_skill,
         'clo': aux_clo,
         'ilo': aux_ilo,
-        'teaching_method': aux_teaching_method,
+        # 'teaching_method': aux_teaching_method,
+        'teaching_method': literal_teaching_method,
         'content': aux_content,
         'delivery_method': aux_delivery_method,
         'intended_use': aux_intended_use,

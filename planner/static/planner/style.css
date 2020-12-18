@@ -34,15 +34,21 @@
 
 label {
     font-family: 'Nunito', sans-serif;
+    vertical-align: middle;
 }
 
 input {
     font-family: 'Nunito', sans-serif;
 }
 
+textarea {
+    font-family: 'Nunito', sans-serif;
+    vertical-align: middle;
+}
+
 input[type="submit"] {
     font-family: 'Merriweather Sans', sans-serif;
-    margin: 0 20px 0 590px;
+    margin: 0 20px 0 570px;
 }
 
 select {
@@ -54,9 +60,10 @@ td {
 }
 
 .footer_logo {
-    padding: 0 20px 0 580px;
+    padding: 0 20px 0 560px;
 }
 
 body {
     width: 800px;
+    background-image: url("images/background.png");
 }
