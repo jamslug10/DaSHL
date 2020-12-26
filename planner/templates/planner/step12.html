@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}">
+    <meta charset="utf-8">
+    <title>Discover and Succeed in Hybrid Learning</title>
+  </head>
+  <body>
+    <h1 class="page_title">Discover and Succeed in Hybrid Learning - Paso 12</h1>
+    <p class="instructions">Y para finalizar, pensemos ahora en la participación de los estudiantes,
+    aspecto central del <b>Aprendizaje Activo</b>:
+    </p>
+    <form action="{% url 'planner:step13' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- hidden fields for upcoming variables -->
+        <input type="hidden" name="session_plan_id" value="{{ session_plan_id }}">
+        <input type="hidden" name="aux_platform_id" value="{{ aux_platform_id }}">
+        <input type="hidden" name="aux_ibs_visual_remote_id" value="{{ aux_ibs_visual_remote_id }}">
+        <input type="hidden" name="aux_ibs_audio_remote_id" value="{{ aux_ibs_audio_remote_id }}">
+        <input type="hidden" name="aux_ibs_visual_face2face_id" value="{{ aux_ibs_visual_face2face_id }}">
+        <input type="hidden" name="aux_ibs_audio_face2face_id" value="{{ aux_ibs_audio_face2face_id }}">
+        <input type="hidden" name="aux_group_configuration_id" value="{{ aux_group_configuration_id }}">
+        <input type="hidden" name="aux_feedback_detail" value="{{ aux_feedback_detail }}">
+        <!-- hidden fields for upcoming variables -->
+        <input type="submit" value="Continuar">
+    </form>
+    <p class="footer_logo">
+      <img src="https://www.estudioelefante.co/uploads/1/2/0/1/120163544/original-128px.png">
+    </p>
+  </body>
+</html>
+    

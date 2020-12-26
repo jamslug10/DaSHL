@@ -52,6 +52,11 @@
     de estar trabajando de manera simultánea, con estudiantes que estarán de
     manera presencial en el salón de clase y estudiantes que estarán conectados
     remotamente desde sus casas.</p>
+    <form action="{% url 'planner:step5' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="session_plan_id" value="{{ aux_session_plan_id }}">
+        <input type="submit" value="Continuar">
+    </form>
     <p class="footer_logo">
       <img src="https://www.estudioelefante.co/uploads/1/2/0/1/120163544/original-128px.png">
     </p>

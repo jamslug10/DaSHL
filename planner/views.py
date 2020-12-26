@@ -3,9 +3,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 from .models import Teaching_method, Skill, Clo, Ilo, Content, Learning_activity
-from .models import Ibs, Session_plan
+from .models import Ibs, Session_plan, Platform
 
-from .forms import Step1Form, Step2Form, Step3Form
+from .forms import Step1Form, Step2Form, Step3Form, Step5Form
+from .forms import Step6Form, Step7Form, Step8Form, Step9Form
+from .forms import Step10Form, Step11Form, Step12Form
 
 # Create your views here.
 def index(request):
@@ -142,6 +144,193 @@ def step4(request):
         'intended_use': aux_intended_use,
         'learning_activities': aux_learning_activities,
         'ideal_outcome': aux_ideal_outcome,
+        'aux_session_plan_id': user_session_plan.id,
     }
     
     return render(request, 'planner/step4.html', context)
+
+def step5(request):
+    form = Step5Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step5.html', context)
+
+def step6(request):
+    form = Step6Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("platform")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step6.html', context)
+
+def step7(request):
+    form = Step7Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("aux_platform_id")
+    aux_ibs_visual_remote_id = request.POST.get("ibs_visual_remote")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step7.html', context)
+
+def step8(request):
+    form = Step8Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("aux_platform_id")
+    aux_ibs_visual_remote_id = request.POST.get("aux_ibs_visual_remote_id")
+    aux_ibs_audio_remote_id = request.POST.get("ibs_audio_remote")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step8.html', context)
+
+def step9(request):
+    form = Step9Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("aux_platform_id")
+    aux_ibs_visual_remote_id = request.POST.get("aux_ibs_visual_remote_id")
+    aux_ibs_audio_remote_id = request.POST.get("aux_ibs_audio_remote_id")
+    aux_ibs_visual_face2face_id = request.POST.get("ibs_visual_face2face")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
+        'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step9.html', context)
+
+def step10(request):
+    form = Step10Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("aux_platform_id")
+    aux_ibs_visual_remote_id = request.POST.get("aux_ibs_visual_remote_id")
+    aux_ibs_audio_remote_id = request.POST.get("aux_ibs_audio_remote_id")
+    aux_ibs_visual_face2face_id = request.POST.get("aux_ibs_visual_face2face_id")
+    aux_ibs_audio_face2face_id = request.POST.get("ibs_audio_face2face")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
+        'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
+        'aux_ibs_audio_face2face_id': aux_ibs_audio_face2face_id,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step10.html', context)
+
+def step11(request):
+    form = Step11Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("aux_platform_id")
+    aux_ibs_visual_remote_id = request.POST.get("aux_ibs_visual_remote_id")
+    aux_ibs_audio_remote_id = request.POST.get("aux_ibs_audio_remote_id")
+    aux_ibs_visual_face2face_id = request.POST.get("aux_ibs_visual_face2face_id")
+    aux_ibs_audio_face2face_id = request.POST.get("aux_ibs_audio_face2face_id")
+    aux_group_configuration_id = request.POST.get("group_configuration")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
+        'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
+        'aux_ibs_audio_face2face_id': aux_ibs_audio_face2face_id,
+        'aux_group_configuration_id': aux_group_configuration_id,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step11.html', context)
+
+def step12(request):
+    form = Step12Form()
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("aux_platform_id")
+    aux_ibs_visual_remote_id = request.POST.get("aux_ibs_visual_remote_id")
+    aux_ibs_audio_remote_id = request.POST.get("aux_ibs_audio_remote_id")
+    aux_ibs_visual_face2face_id = request.POST.get("aux_ibs_visual_face2face_id")
+    aux_ibs_audio_face2face_id = request.POST.get("aux_ibs_audio_face2face_id")
+    aux_group_configuration_id = request.POST.get("group_configuration")
+    aux_feedback_detail = request.POST.get("feedback_detail")
+        
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
+        'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
+        'aux_ibs_audio_face2face_id': aux_ibs_audio_face2face_id,
+        'aux_group_configuration_id': aux_group_configuration_id,
+        'aux_feedback_detail': aux_feedback_detail,
+        'form': form,
+    }
+    
+    return render(request, 'planner/step12.html', context)
+
+def step13(request):
+    
+    session_plan_id = request.POST.get("session_plan_id")
+    aux_platform_id = request.POST.get("aux_platform_id")
+    aux_ibs_visual_remote_id = request.POST.get("aux_ibs_visual_remote_id")
+    aux_ibs_audio_remote_id = request.POST.get("aux_ibs_audio_remote_id")
+    aux_ibs_visual_face2face_id = request.POST.get("aux_ibs_visual_face2face_id")
+    aux_ibs_audio_face2face_id = request.POST.get("aux_ibs_audio_face2face_id")
+    aux_group_configuration_id = request.POST.get("group_configuration")
+    aux_feedback_detail = request.POST.get("feedback_detail")
+    aux_participation_detail = request.POST.get("participation_detail")
+    
+    #now it's time to update the session plan previously generated
+    user_session_plan = Session_plan.objects.get(id=session_plan_id)
+    user_session_plan.session_plan_feedback_detail = aux_feedback_detail
+    user_session_plan.session_plan_participation_detail = aux_participation_detail
+    user_session_plan.save()
+    
+    context={
+        'session_plan_id': session_plan_id,
+        'aux_platform_id': aux_platform_id,
+        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
+        'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
+        'aux_ibs_audio_face2face_id': aux_ibs_audio_face2face_id,
+        'aux_group_configuration_id': aux_group_configuration_id,
+        'aux_feedback_detail': aux_feedback_detail,
+        'aux_participation_detail': aux_participation_detail,
+    } 
+    
+    return render(request, 'planner/step13.html', context)
+
+    

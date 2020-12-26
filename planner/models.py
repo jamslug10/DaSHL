@@ -79,6 +79,10 @@ class Ibs(models.Model):
         ('A','Audio'),
         ('V','Visual'),
     ]
+    IBS_COM_DIRECTION = [
+        ('P','Desde los estudiantes que asisten presencialmente'),
+        ('R','Desde los estudiantes que se conectan de manera remota'),
+    ]
     ibs_name = models.CharField(max_length=200)
     ibs_description = models.TextField()
     ibs_type = models.CharField(
@@ -86,6 +90,11 @@ class Ibs(models.Model):
         choices=IBS_TYPE,
         default='A',
         )
+    ibs_com_direction = models.CharField(
+        max_length=1,
+        choices=IBS_COM_DIRECTION,
+        default='P',
+    )
     
     def __str__(self):
         return self.ibs_name
