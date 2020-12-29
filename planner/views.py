@@ -310,25 +310,34 @@ def step13(request):
     aux_ibs_visual_face2face_id = request.POST.get("aux_ibs_visual_face2face_id")
     aux_ibs_audio_face2face_id = request.POST.get("aux_ibs_audio_face2face_id")
     aux_group_configuration_id = request.POST.get("group_configuration")
-    aux_feedback_detail = request.POST.get("feedback_detail")
+    aux_feedback_detail = request.POST.get("aux_feedback_detail")
     aux_participation_detail = request.POST.get("participation_detail")
     
     #now it's time to update the session plan previously generated
     user_session_plan = Session_plan.objects.get(id=session_plan_id)
     user_session_plan.session_plan_feedback_detail = aux_feedback_detail
     user_session_plan.session_plan_participation_detail = aux_participation_detail
+    user_session_plan.session_plan_platform = aux_platform_id
+    user_session_plan.session_plan_group_configuration = aux_group_configuration_id
     user_session_plan.save()
+    
+    #Now we need to add the IBS ManyToMany elements
+    user_session_plan.ibs.add(aux_ibs_visual_remote_id)
+    user_session_plan.ibs.add(aux_ibs_audio_remote_id)
+    user_session_plan.ibs.add(aux_ibs_visual_face2face_id)
+    user_session_plan.ibs.add(aux_ibs_audio_face2face_id)
+    
     
     context={
         'session_plan_id': session_plan_id,
-        'aux_platform_id': aux_platform_id,
-        'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
-        'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
-        'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
-        'aux_ibs_audio_face2face_id': aux_ibs_audio_face2face_id,
-        'aux_group_configuration_id': aux_group_configuration_id,
-        'aux_feedback_detail': aux_feedback_detail,
-        'aux_participation_detail': aux_participation_detail,
+        # 'aux_platform_id': aux_platform_id,
+        # 'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
+        # 'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
+        # 'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
+        # 'aux_ibs_audio_face2face_id': aux_ibs_audio_face2face_id,
+        # 'aux_group_configuration_id': aux_group_configuration_id,
+        # 'aux_feedback_detail': aux_feedback_detail,
+        # 'aux_participation_detail': aux_participation_detail,
     } 
     
     return render(request, 'planner/step13.html', context)

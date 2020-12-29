@@ -108,6 +108,7 @@ class Platform(models.Model):
 class Session_plan(models.Model):
     teaching_method = models.ForeignKey(Teaching_method, on_delete=models.CASCADE)
     platform = models.ForeignKey(Platform, on_delete=models.CASCADE, default=1)
+    group_configuration = models.ForeignKey(Group_configuration, on_delete=models.CASCADE, default=1)
     clo = models.ManyToManyField(Clo)
     ilo = models.ManyToManyField(Ilo)
     content = models.ManyToManyField(Content)
