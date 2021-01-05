@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'planner/style.css' %}">
+    <meta charset="utf-8">
+    <title>Discover and Succeed in Hybrid Learning</title>
+  </head>
+  <body>
+    <h1 class="page_title">Discover and Succeed in Hybrid Learning - Planeación Realizada</h1>
+    <p class="instructions">La siguiente es la planeación de su sesión de clase para un
+    Ambiente de Aprendizaje Híbrido:</p>
+    <table>
+        <tr>
+            <td class="cell_style5" colspan="2">Competencia asociada al curso:</td>
+            <td class="cell_style6" colspan="2">{{ ilo.clo.skill.skill_description }}</td>
+        </tr>
+        <tr>
+            <td class="cell_style1">Resultado de Aprendizaje del curso (CLO):</td>
+            <td class="cell_style2">{{ ilo.clo.clo_description }}</td>
+            <td class="cell_style1">Resultado de Aprendizaje de la sesión (ILO):</td>
+            <td class="cell_style2">{{ ilo.ilo_description }}</td>
+            
+        </tr>
+        <tr>
+            <td class="cell_style3">Plataforma empleada para conexión remota:</td>
+            <td class="cell_style4">{{ session_plan.platform }}</td>
+            <td class="cell_style3">Metodología de Enseñanza:</td>
+            <td class="cell_style4">{{ session_plan.teaching_method.teaching_method_name }}</td>
+        </tr>
+        <tr>
+            <td class="cell_style7">¿De qué manera se transmite la imagen de lo que ocurre en
+            el salón a los estudiantes conectados remotamente?</td>
+            <td class="cell_style8">
+                {% if ibs_session_visual1 %}
+                    <ul>
+                        {% for ibs in ibs_session_visual1 %}
+                        <li>
+                            {{ ibs.ibs_name }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <em>No se han definido IBS</em>
+                {% endif %}
+            </td>
+            <td class="cell_style9">¿De qué manera se transmite el audio de lo que ocurre en
+            el salón a los estudiantes conectados remotamente?</td>
+            <td class="cell_style10">
+                {% if ibs_session_visual1 %}
+                    <ul>
+                        {% for ibs in ibs_session_audio1 %}
+                        <li>
+                            {{ ibs.ibs_name }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <em>No se han definido IBS</em>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td class="cell_style7">¿De qué manera se transmite la imagen de los estudiantes
+            conectados remotamente a los estudiantes que están en el salón de clase?</td>
+            <td class="cell_style8">
+                {% if ibs_session_visual2 %}
+                    <ul>
+                        {% for ibs in ibs_session_visual2 %}
+                        <li>
+                            {{ ibs.ibs_name }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <em>No se han definido IBS</em>
+                {% endif %}
+            </td>
+            <td class="cell_style9">¿De qué manera se transmite la imagen de los estudiantes
+            conectados remotamente a los estudiantes que están en el salón de clase?</td>
+            <td class="cell_style10">
+                {% if ibs_session_audio2 %}
+                    <ul>
+                        {% for ibs in ibs_session_audio1 %}
+                        <li>
+                            {{ ibs.ibs_name }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <em>No se han definido IBS</em>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td class="cell_style1">Contenido informativo:</td>
+            <td class="cell_style2">{{ content.content_description }}</td>
+            <td class="cell_style1">¿De qué manera acceden a la información los estudiantes?:</td>
+            <td class="cell_style2">{{ session_plan.session_plan_content_delivery_method }}</td>
+        </tr>
+        <tr>
+            <td class="cell_style3">Uso esperado de la información:</td>
+            <td class="cell_style4">{{ session_plan.session_plan_intended_content_use }}</td>
+            <td class="cell_style3">¿De qué manera se configuran los grupos de trabajo?:</td>
+            <td class="cell_style4">{{ session_plan.group_configuration.group_configuration_description }}</td>
+        </tr>
+        <tr>
+            <td class="cell_style1">Actividades de Aprendizaje:</td>
+            <td class="cell_style2">
+                {% if learning_activity %}
+                <ul>
+                        {% for la in learning_activity %}
+                        <li>
+                            {{ la.learning_activity_description }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <em>No se han definido Actividades de Aprendizaje</em>
+                {% endif %}
+            </td>
+            <td class="cell_style1">¿Cuál sería el resultado ideal que podrían alcanzar los estudiantes?</td>
+            <td class="cell_style2">{{ session_plan.session_plan_ideal_student_outcome }}</td>
+        </tr>
+        <tr>
+            <td class="cell_style7">¿De qué manera garantiza que la realimentación que reciban los
+            estudiantes sea la misma, tanto para quienes asisten presencialmente al aula como para
+            aquellos que se conectan de manera remota?</td>
+            <td class="cell_style8">{{ session_plan.session_plan_feedback_detail }}</td>
+            <td class="cell_style9">¿De qué manera garantiza que todos los estudiantes cuenten con
+            las mismas oportunidades para participar en la sesión, tomando en cuenta que algunos se
+            conectarán remotamente y otros estarán presencialmente en el aula?</td>
+            <td class="cell_style10">{{ session_plan.session_plan_participation_detail }}</td>
+        </tr>
+    </table>
+    
+    <p class="footer_logo">
+      <img src="https://www.estudioelefante.co/uploads/1/2/0/1/120163544/original-128px.png">
+    </p>
+  </body>
+</html>
+    

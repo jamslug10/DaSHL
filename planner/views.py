@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -330,16 +330,38 @@ def step13(request):
     
     context={
         'session_plan_id': session_plan_id,
-        # 'aux_platform_id': aux_platform_id,
-        # 'aux_ibs_visual_remote_id': aux_ibs_visual_remote_id,
-        # 'aux_ibs_audio_remote_id': aux_ibs_audio_remote_id,
-        # 'aux_ibs_visual_face2face_id': aux_ibs_visual_face2face_id,
-        # 'aux_ibs_audio_face2face_id': aux_ibs_audio_face2face_id,
-        # 'aux_group_configuration_id': aux_group_configuration_id,
-        # 'aux_feedback_detail': aux_feedback_detail,
-        # 'aux_participation_detail': aux_participation_detail,
     } 
     
     return render(request, 'planner/step13.html', context)
 
+def fullSessionPlan(request, session_plan_id):
     
+    full_session_plan = get_object_or_404(Session_plan, pk=session_plan_id)
+    ilo_session = get_object_or_404(Ilo, session_plan=full_session_plan.id)
+    ibs_session_visual1 = Ibs.objects.filter(session_plan=full_session_plan.id,
+                                             ibs_type='V',
+                                             ibs_com_direction='P')
+    ibs_session_visual1 = ibs_session_visual1.exclude(ibs_name='Not Specific')
+    ibs_session_visual2 = Ibs.objects.filter(session_plan=full_session_plan.id,
+                                             ibs_type='V',
+                                             ibs_com_direction='R')
+    ibs_session_visual2 = ibs_session_visual2.exclude(ibs_name='Not Specific')
+    ibs_session_audio1 = Ibs.objects.filter(session_plan=full_session_plan.id,
+                                             ibs_type='A',
+                                             ibs_com_direction='P')
+    ibs_session_audio1 = ibs_session_audio1.exclude(ibs_name='Not Specific')
+    ibs_session_audio2 = Ibs.objects.filter(session_plan=full_session_plan.id,
+                                             ibs_type='A',
+                                             ibs_com_direction='R')
+    ibs_session_audio2 = ibs_session_audio2.exclude(ibs_name='Not Specific')
+    content_session = get_object_or_404(Content, session_plan=full_session_plan.id)
+    learning_activity_session = Learning_activity.objects.filter(session_plan=full_session_plan.id)
+
+    return render(request, 'planner/fullSessionPlan.html', {'session_plan': full_session_plan,
+                                                            'ilo': ilo_session,
+                                                            'ibs_session_visual1': ibs_session_visual1,
+                                                            'ibs_session_visual2': ibs_session_visual2,
+                                                            'ibs_session_audio1': ibs_session_audio1,
+                                                            'ibs_session_audio2': ibs_session_audio2,
+                                                            'content': content_session,
+                                                            'learning_activity': learning_activity_session,})

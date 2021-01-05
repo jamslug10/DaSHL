@@ -18,4 +18,5 @@ urlpatterns = [
     path('step11/', views.step11, name='step11'),
     path('step12/', views.step12, name='step12'),
     path('step13/', views.step13, name='step13'),
+    path('<int:session_plan_id>/fullSessionPlan/', views.fullSessionPlan, name='fullSessionPlan'),
 ]

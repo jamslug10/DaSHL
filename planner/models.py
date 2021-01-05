@@ -119,6 +119,8 @@ class Session_plan(models.Model):
     session_plan_intended_content_use = models.TextField()
     session_plan_feedback_detail = models.TextField()
     session_plan_participation_detail = models.TextField()
+    session_plan_ideal_student_outcome = models.CharField(max_length=200,
+                                                          default='resultado ideal de las LA')
     
     def __str__(self):
         return self.session_plan_name
