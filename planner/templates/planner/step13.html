@@ -17,9 +17,9 @@
     conocimiento de nuestros equipo de consultores.</p>
     <p class="instructions">Ahora puede descargarla para hacer uso de ella en su trabajo o puede
     volver al proceso de edición para ajustar lo que considere.</p>
-    <form action="{% url 'planner:fullSessionPlan' %}" method="post">
+    <form action="{% url 'planner:fullSessionPlan' session_plan_id %}" method="post">
         {% csrf_token %}
-        <input type="hidden" name="session_plan_id" value="{{ aux_session_plan_id }}">
+        <!--<input type="hidden" name="session_plan_id" value="{{ aux_session_plan_id }}">-->
         <input type="submit" value="Continuar">
     </form>
     <p class="footer_logo">

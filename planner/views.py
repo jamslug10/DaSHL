@@ -122,6 +122,7 @@ def step4(request):
                                      session_plan_name='planeacion generada por u. anonimo',
                                      session_plan_content_delivery_method=aux_delivery_method,
                                      session_plan_intended_content_use=aux_intended_use,
+                                     session_plan_ideal_student_outcome=aux_ideal_outcome,
                                      session_plan_feedback_detail='not defined',
                                      session_plan_participation_detail='not defined')
     user_session_plan.save()
