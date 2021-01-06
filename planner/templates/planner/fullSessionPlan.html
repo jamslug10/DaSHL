@@ -47,7 +47,7 @@
             <td class="cell_style9">¿De qué manera se transmite el audio de lo que ocurre en
             el salón a los estudiantes conectados remotamente?</td>
             <td class="cell_style10">
-                {% if ibs_session_visual1 %}
+                {% if ibs_session_audio1 %}
                     <ul>
                         {% for ibs in ibs_session_audio1 %}
                         <li>
@@ -76,12 +76,12 @@
                     <em>No se han definido IBS</em>
                 {% endif %}
             </td>
-            <td class="cell_style9">¿De qué manera se transmite la imagen de los estudiantes
+            <td class="cell_style9">¿De qué manera se transmite el audio de los estudiantes
             conectados remotamente a los estudiantes que están en el salón de clase?</td>
             <td class="cell_style10">
                 {% if ibs_session_audio2 %}
                     <ul>
-                        {% for ibs in ibs_session_audio1 %}
+                        {% for ibs in ibs_session_audio2 %}
                         <li>
                             {{ ibs.ibs_name }}
                         </li>
